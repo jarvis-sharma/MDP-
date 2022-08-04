@@ -13,12 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from pkgutil import ImpImporter
 from django.contrib import admin
 from django.conf.urls import url ,include
 from django.urls import path
 from django.views.generic.base import TemplateView
 from home import views_home
 from forms import views
+
+from django.views.static import serve
+from django.config.urls import url
 
 urlpatterns = [
      path('',views_home.home,name='home'),
@@ -30,6 +34,8 @@ urlpatterns = [
      path('vipform/',views.vipform,name="vipform"),
      path('feedbackform/feedbacksubmit/',views.feedback_submit,name='feedback_submit'),
      path('feedbackform/',views.feedback_form,name='feedback_form'),
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 
 
 ]
