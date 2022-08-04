@@ -25,7 +25,7 @@ SECRET_KEY = '(%*qzx$u#m%oim%lb86a2!_%moit26xf516a)w3gcz2re+7*q$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','mdp-website.herokuapp.com']
 LOGIN_URL = '/membership'
 
 # Application definition
